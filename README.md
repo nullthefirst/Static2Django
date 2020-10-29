@@ -1,0 +1,1 @@
+# Static2Django
