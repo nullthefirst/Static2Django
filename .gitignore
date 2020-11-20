@@ -1,5 +1,5 @@
 _dev/
-.env
+static_django/.env
 __pycache__
 gcp/
 db.sqlite3
