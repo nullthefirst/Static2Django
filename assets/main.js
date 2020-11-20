@@ -8,5 +8,5 @@ var timeSpan = document.getElementById('time');
 timeSpan.innerText = getTime();
 
 function refreshTimeDisplay() {
-    setInterval(location.reload(), 100);
+    location.reload();
 }
