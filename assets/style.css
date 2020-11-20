@@ -1,0 +1,12 @@
+body {
+    font-size: 16px;
+    padding: 2rem 1rem;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.footer {
+    text-align: right;
+}
