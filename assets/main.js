@@ -1,8 +1,12 @@
-var date = new Date();
-console.log(date);
-
-var time = date.toTimeString();
-console.log(time);
+function getTime() {
+    var date = new Date();
+    var time = date.toTimeString();
+    return time;
+}
 
 var timeSpan = document.getElementById('time');
-timeSpan.innerText = time;
+timeSpan.innerText = getTime();
+
+function refreshTimeDisplay() {
+    setInterval(location.reload(), 100);
+}
