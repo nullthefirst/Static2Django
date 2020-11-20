@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def submission(request):
+    return render(request, 'pages/submit.html')
