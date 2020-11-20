@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-sm-2 col-md-3"></div>
                 <div class="col-sm-8 col-md-6">
-                    <h2 class="underline text-info">Submit Information</h2>
+                    <h2 class="text-info">Submit Information</h2>
 
                     <br />
 
@@ -39,17 +39,29 @@
                                 rows="5"
                             ></textarea>
                         </div>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-info">
                             Submit <i class="lni lni-checkmark"></i>
                         </button>
                     </form>
 
                     <br />
+
                     <div class="footer">
-                        <p class="text-info">
-                            <i class="lni lni-alarm-clock"></i>
-                            <span id="time"></span>
-                        </p>
+                        <div class="row">
+                            <div class="col-10 col-md-12">
+                                <i class="lni text-white lni-alarm-clock"></i>
+                                <span id="time" class="text-info"></span>
+                            </div>
+                            <div class="col-2 col-md-12">
+                                <button
+                                    type="button"
+                                    class="btn btn-link pt-2"
+                                    onclick="refreshTimeDisplay()"
+                                >
+                                    <i class="lni text-white lni-reload"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-2 col-md-3"></div>
