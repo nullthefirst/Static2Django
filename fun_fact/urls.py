@@ -5,6 +5,6 @@ from . import views
 app_name = 'fun'
 
 urlpatterns = [
-    path('', views.submission, name='submission'),
-    path('results/', views.results, name='results'),
+    path('', views.Submission.as_view(), name='submission'),
+    path('results/', views.Results.as_view(), name='results'),
 ]
