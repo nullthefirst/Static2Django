@@ -8,40 +8,21 @@
     <br />
 
     <form action="" method="post">
+        {% csrf_token %}
+        {% for field in form %}
         <div class="form-group">
-            <label class="text-white">Username</label>
-            <input type="text" class="form-control" />
+            <label class="col-form-label text-white">{{ field.label_tag }}</label>
+            <span style="color:red">
+                {{ field.errors }}
+            </span>
+            {{ field }}
         </div>
-        <div class="form-group">
-            <label class="text-white">Fun Fact</label>
-            <textarea
-                type="text"
-                class="form-control"
-                rows="5"
-            ></textarea>
-        </div>
+        {% endfor %}
+
         <button class="btn btn-info">
             Submit <i class="lni lni-checkmark"></i>
         </button>
     </form>
 
     <br />
-
-    <div class="footer">
-        <div class="row">
-            <div class="col-10 col-md-12">
-                <i class="lni text-white lni-alarm-clock"></i>
-                <span id="time" class="text-info"></span>
-            </div>
-            <div class="col-2 col-md-12">
-                <button
-                    type="button"
-                    class="btn btn-link pt-2"
-                    onclick="refreshTimeDisplay()"
-                >
-                    <i class="lni text-white lni-reload"></i>
-                </button>
-            </div>
-        </div>
-    </div>
 {% endblock %}

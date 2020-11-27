@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <h2 class="underline text-info">Result #{{ result.id }}</h2>
+
+    <br />
+
+    <p class="text-white"><strong>Username</strong></p>
+    <div class="bg-light border border-info rounded">
+        <p class="px-2 pt-3">{{ result.username }}</p>
+    </div>
+
+    <br />
+
+    <p class="text-white"><strong>Fun Fact</strong></p>
+    <div class="bg-light border border-info rounded">
+        <p class="px-2 pt-3">
+            {{ result.fun_fact }}
+        </p>
+    </div>
+
+    <br /><br /><br />
+{% endblock %}

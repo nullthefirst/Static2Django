@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import FunFactSubmission
+
+
+class FunFactSubmissionAdmin(admin.ModelAdmin):
+    fields = ['username', 'fun_fact']
+
+
+admin.site.register(FunFactSubmission, FunFactSubmissionAdmin)
