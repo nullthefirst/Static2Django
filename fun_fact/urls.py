@@ -7,4 +7,5 @@ app_name = 'fun'
 urlpatterns = [
     path('', views.Submission.as_view(), name='submission'),
     path('results/', views.Results.as_view(), name='results'),
+    path('<int:pk>/result/', views.ResultFocus.as_view(), name='result-focus'),
 ]
