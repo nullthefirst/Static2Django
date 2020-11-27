@@ -16,33 +16,17 @@
             </tr>
         </thead>
         <tbody>
+            {% for value in submissions %}
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
+                <th scope="row">{{ value.id }}</th>
+                <td>{{ value.username }}</td>
                 <td class="text-info">
-                    <button type="button" class="btn btn-sm btn-light">
+                    <a class="btn btn-sm btn-light" href="{% url 'fun:result-focus' value.id %}">
                         <i class="text-info lni lni-angle-double-right"></i>
-                    </button>
+                    </a>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td class="text-info">
-                    <button type="button" class="btn btn-sm btn-light">
-                        <i class="text-info lni lni-angle-double-right"></i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td class="text-info">
-                    <button type="button" class="btn btn-sm btn-light">
-                        <i class="text-info lni lni-angle-double-right"></i>
-                    </button>
-                </td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 
