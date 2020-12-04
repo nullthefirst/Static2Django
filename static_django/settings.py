@@ -14,6 +14,8 @@ import os
 
 import environ
 
+from .custom.postgres_db_url_parser import database_url_postgres_parser as db_parser
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -80,17 +82,31 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'static_django.wsgi.application'
 
+DEV_MODE = env('DEV_MODE')
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if DEV_MODE == 'local':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DB_INFO = db_parser(os.environ['DATABASE_URL'])
 
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': DB_INFO['name'],
+            'USER': DB_INFO['user'],
+            'PASSWORD': DB_INFO['password'],
+            'HOST': DB_INFO['host'],
+            'PORT': DB_INFO['port'],
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
